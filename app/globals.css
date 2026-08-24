@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1b1c1f;
-}
+  color-scheme: light dark;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #fbfcfd;
+  --surface: #f1f4f8;
+  --foreground: #101a2b;
+  --muted: #5b6b82;
+  --border: #243044;
+  --accent: #8a6a1f;
+  --accent-soft: #f5edda;
+  --positive: #1f6b4d;
+  --negative: #a63a30;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c121c;
+    --surface: #141d2b;
+    --foreground: #e8edf4;
+    --muted: #8598b0;
+    --border: #243044;
+    --accent: #c9a24a;
+    --accent-soft: #1e2536;
+    --positive: #4caf85;
+    --negative: #e0705f;
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+input,
+select,
+button {
+  color: inherit;
+  background-color: transparent;
+  font: inherit;
+}
+
+option {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Rates and converted amounts — keeps digits from jittering as values change */
+.tabular {
+  font-variant-numeric: tabular-nums;
 }
